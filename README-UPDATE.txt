@@ -1,0 +1,3 @@
+S&S Shop update: Blueberry Cat and Antsui are finished starter creatures, not merge ingredients. Shop mystery presents now reveal ordinary animals (cat, dog, rabbit, fox, bear). Grow a seed in the garden for 3 minutes, then combine an ordinary animal and harvested crop in the Merge Castle. New hybrid appears in My Pets. Existing saved data is preserved. Visual hybrids currently use emoji combinations; custom artwork can be added later.
+
+Playroom update: new illustrated, species-neutral background; preserved pet selection, animations, bath, shop and garden. Background uses cover to fill the viewport.
