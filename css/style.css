@@ -1,0 +1,226 @@
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:"Trebuchet MS",system-ui,sans-serif;color:#563273}button{font:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:4px solid #ffcf4c;outline-offset:2px}.screen{display:none;width:100vw;height:100dvh}.screen.active{display:block}#title{background:#56bce8}#title.active{display:flex;align-items:center;justify-content:center}.title-frame{position:relative;width:min(100vw,177.6833dvh);aspect-ratio:1672/941;max-height:100dvh}.title-frame img{width:100%;height:100%;display:block}.title-frame #play{position:absolute;left:47.7%;top:88.6%;transform:translate(-50%,-50%);width:25%;height:16%;opacity:0;border:0;background:transparent}.scene{height:100%;width:100%;position:relative;overflow:hidden;background:linear-gradient(#7edbff 0%,#c6f7ff 64%,#8ad761 64%,#53b950 100%)}.scene:after{content:"";position:absolute;left:-5%;bottom:-22%;width:110%;height:43%;background:#70ca54;border-radius:50% 50% 0 0;pointer-events:none}.sun{position:absolute;right:5%;top:8%;font-size:clamp(45px,7vw,100px);filter:drop-shadow(2px 3px 0 #ffdf7b);animation:wobble 4s ease-in-out infinite}.cloud{position:absolute;color:white;font-size:clamp(55px,8vw,110px);opacity:.85}.cloud1{top:13%;left:9%}.cloud2{top:28%;right:18%}header,nav,#room{position:relative;z-index:1}header{display:flex;justify-content:space-between;align-items:center;padding:1.5vh 2vw}.brand{font-weight:900;font-size:clamp(15px,2.5vw,32px);color:#9c4fb5;text-shadow:2px 2px #fff}header button,nav button,.action,.pet-choice,.bath-tile,.close{border:3px solid #fff;border-radius:22px;background:#f7a6d9;color:#6a377f;box-shadow:0 5px 0 #aa6ab6;font-weight:900;padding:.55em 1em}nav{display:flex;gap:1vw;justify-content:center;flex-wrap:wrap}nav button{background:#ffe58e;font-size:clamp(11px,1.5vw,18px);padding:.5em .8em}nav button.selected{background:#f5a3de}#room{height:calc(100% - 125px);padding:1vh 3vw;overflow:auto}.play-layout{height:100%;min-height:280px;display:grid;grid-template-columns:23% 1fr 23%;gap:2vw;align-items:end}.panel{background:#fff9eddd;border:4px solid white;border-radius:26px;box-shadow:0 7px 0 #a9cc7b;padding:1vw;text-align:center;align-self:center}.panel h2{font-size:clamp(16px,2.1vw,28px);margin:.2em 0}.pet-choice{width:100%;margin:.35em 0;background:#fff;font-size:clamp(12px,1.3vw,19px);padding:.5em}.pet-choice.active{background:#ffb5e4}.center-stage{align-self:end;text-align:center;height:95%;display:flex;flex-direction:column;align-items:center;justify-content:end}.pet-display{font-size:clamp(80px,16vw,230px);line-height:1;filter:drop-shadow(4px 10px 0 #458b46);animation:bob 2s ease-in-out infinite}.pet-display .face{font-size:.2em;position:absolute}.speech{background:#fff;border:3px solid #f7b5e0;border-radius:25px;padding:.5em 1em;font-size:clamp(13px,1.5vw,22px);font-weight:900;max-width:95%}.action{background:#ffce5b;margin:.6em;font-size:clamp(13px,1.5vw,20px)}.bath-tile{width:100%;background:#dcb7ff;padding:.7em .2em;font-size:clamp(14px,1.6vw,22px)}.tub{display:block;font-size:clamp(65px,9vw,150px);line-height:1.1}.small{font-size:clamp(11px,1.1vw,16px)}.progress{font-size:clamp(12px,1.3vw,18px);font-weight:900}.modal{position:fixed;inset:0;background:#4e2e7d88;display:grid;place-items:center;z-index:20;padding:3vw}.modal.hidden{display:none}.modal-card{position:relative;width:min(700px,95vw);max-height:90dvh;overflow:auto;background:#fff6dc;border:8px solid white;border-radius:35px;padding:25px;text-align:center;box-shadow:0 15px 0 #8558a3}.modal-card h2{margin:15px 30px;color:#9d4cad}.close{position:absolute;right:12px;top:10px;background:#ff98b5;padding:.25em .6em}.bath-list{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.bath-list button{font-size:20px}.bath-animation{font-size:clamp(70px,12vw,140px);min-height:155px}.bath-animation .emoji{display:block;animation:splash .5s ease-in-out infinite alternate}.bath-animation .reaction{display:block;font-size:clamp(16px,3vw,26px);font-weight:900}.bubbles{font-size:40px;animation:bob 1s infinite}.generic{max-width:680px;margin:8vh auto;text-align:center;background:#fff8e8e8;padding:3vw;border:5px solid white;border-radius:30px}.generic .icons{font-size:clamp(50px,8vw,110px)}@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}@keyframes wobble{50%{transform:rotate(10deg)}}@keyframes splash{to{transform:rotate(12deg) translateY(-8px)}}@media(max-width:650px){header{padding:6px}.brand{font-size:14px}nav{gap:3px}nav button{font-size:10px;padding:5px}#room{height:calc(100% - 90px);padding:3px}.play-layout{grid-template-columns:25% 1fr 25%;gap:4px}.panel{padding:4px;border-width:2px;border-radius:12px}.panel h2{font-size:13px}.pet-choice{font-size:10px;padding:4px;border-width:1px;margin:2px 0}.pet-display{font-size:clamp(50px,15vw,110px)}.speech{font-size:11px}.action{font-size:11px;padding:5px}.bath-tile{font-size:11px}.tub{font-size:48px}.small,.progress{font-size:10px}}
+/* Full-bleed landscape title screen.
+   Scale the original illustration uniformly until it covers the viewport.
+   The transparent button stays anchored to the Play artwork. */
+#title { overflow: hidden; background: #56bce8; }
+#title.active { display: flex; align-items: center; justify-content: center; }
+#title .title-frame {
+  position: relative;
+  flex: 0 0 auto;
+  width: max(100vw, 177.6833dvh);
+  height: max(100dvh, 56.2799vw);
+  max-height: none;
+  aspect-ratio: auto;
+}
+#title .title-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+#title .title-frame #play {
+  position: absolute;
+  left: 47.7%;
+  top: 88.6%;
+  width: 25%;
+  height: 16%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Bo's original illustrated Blueberry Cat — not an emoji */
+.blueberry-sprite{display:block;width:min(100%,300px);height:auto;margin:auto;transform-origin:50% 85%;filter:drop-shadow(0 8px 3px rgba(51,90,40,.15))}
+.pet-display:has(.blueberry-sprite){display:flex;align-items:center;justify-content:center;min-height:220px}
+#cat-dance{margin:5px auto 12px;background:#ffe2fb}
+#cat-dance[hidden]{display:none}
+.cat-dancing{animation:bo-cat-dance 2.2s ease-in-out both}
+@keyframes bo-cat-dance{
+0%,100%{transform:translateY(0) rotate(0)}
+18%{transform:translateY(-25px) rotate(-8deg) scale(1.08)}
+32%{transform:translateY(-30px) rotate(8deg) scale(1.09)}
+46%{transform:translateY(0) rotate(0)}
+70%{transform:rotate(180deg)}
+90%{transform:rotate(360deg)}
+}
+@media(prefers-reduced-motion:reduce){.cat-dancing{animation:none}}
+
+/* Antsui: original homepage illustration, transparent background */
+.antsui-sprite{display:block;width:min(100%,300px);height:auto;margin:auto;transform-origin:50% 85%;filter:drop-shadow(0 8px 3px rgba(51,90,40,.15))}
+.pet-display:has(.antsui-sprite){display:flex;align-items:center;justify-content:center;min-height:220px}
+#antsui-wiggle{margin:5px auto 12px;background:#d9f8b2}
+#antsui-wiggle[hidden]{display:none}
+.antsui-wiggling{animation:antsui-wiggle 1.25s ease-in-out both}
+@keyframes antsui-wiggle{0%,100%{transform:rotate(0) translateY(0)}15%,45%,75%{transform:rotate(-9deg) translateY(-10px)}30%,60%,90%{transform:rotate(9deg) translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.antsui-wiggling{animation:none}}
+
+/* Bath popup uses the SAME original character PNGs as the playroom. */
+.bath-list .pet-choice{width:clamp(125px,24vw,190px);min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#fff4fc;border-color:#bc86d6}
+.bath-pet-art{display:block;object-fit:contain;max-width:100%;height:auto;filter:drop-shadow(0 5px 4px #694f7b44)}
+.bath-choice-art{width:clamp(95px,17vw,155px);height:110px;object-fit:contain}
+.bath-scene{height:clamp(220px,34vh,340px);max-width:540px;margin:0 auto;position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(180deg,#e9e3ff 0%,#f8edff 64%,#fceeff 100%);border:3px solid #e2c3ff}
+.bath-character{position:absolute;z-index:2;left:50%;bottom:24%;width:clamp(155px,28vw,240px);height:78%;transform:translateX(-50%);transform-origin:50% 75%;animation:bath-pet-bob 1.4s ease-in-out infinite}
+.bath-main-art{height:100%;width:100%;object-fit:contain}
+.bath-phase-0.bath-cat{animation:bath-pet-surprise .6s ease-in-out infinite alternate}
+.bath-phase-1{animation:bath-pet-bob 1.5s ease-in-out infinite}
+.bath-phase-2{animation:bath-pet-happy 1.2s ease-in-out infinite}
+.illustrated-tub{position:absolute;z-index:3;left:17%;right:17%;bottom:8%;height:36%;pointer-events:none}
+.tub-rim{position:absolute;top:0;left:-5%;width:110%;height:24%;border-radius:50%;background:#f9edff;border:7px solid #ab77d5;box-shadow:inset 0 5px 0 #fff;z-index:3}
+.tub-body{position:absolute;left:2%;right:2%;top:9%;height:83%;background:linear-gradient(110deg,#c59bef,#e7ccff 55%,#b88ae6);border:5px solid #9767c7;border-radius:12% 12% 44% 44% / 15% 15% 85% 85%;display:grid;place-items:center;box-shadow:inset 12px 0 0 #ffffff44}
+.tub-paw{font-size:40px;color:#fff6ff;text-shadow:0 2px #aa7fd0}
+.tub-feet{position:absolute;bottom:-5%;left:12%;right:12%;display:flex;justify-content:space-between}
+.tub-feet b{width:13%;height:16px;background:#aa77d0;border-radius:0 0 14px 14px}
+.bath-foam{position:absolute;z-index:4;left:14%;right:14%;bottom:35%;height:12%;pointer-events:none}
+.bath-foam i{position:absolute;bottom:0;width:clamp(24px,5vw,48px);aspect-ratio:1;border-radius:50%;background:#fff;border:3px solid #d7c5f5;box-shadow:inset -6px -6px #e6d9ff}
+.bath-foam i:nth-child(1){left:4%}.bath-foam i:nth-child(2){left:20%;bottom:9px}.bath-foam i:nth-child(3){left:43%}.bath-foam i:nth-child(4){left:62%;bottom:7px}.bath-foam i:nth-child(5){left:80%}.bath-foam i:nth-child(6){left:92%;bottom:4px}
+.bath-droplets i{position:absolute;z-index:5;width:17px;height:17px;border-radius:50%;border:2px solid #9ac8f8;background:#dcf9ff99;animation:bath-bubble-float 2s ease-in-out infinite}
+.bath-droplets i:nth-child(1){left:18%;top:40%}.bath-droplets i:nth-child(2){left:78%;top:20%;animation-delay:.4s}.bath-droplets i:nth-child(3){left:68%;top:49%;animation-delay:.8s}.bath-droplets i:nth-child(4){left:34%;top:18%;animation-delay:1.1s}
+.bath-reaction{font-weight:900;font-size:clamp(16px,2.4vw,24px);margin:12px 0}
+@keyframes bath-pet-bob{0%,100%{transform:translateX(-50%) rotate(-3deg)}50%{transform:translateX(-50%) translateY(-12px) rotate(3deg)}}
+@keyframes bath-pet-surprise{from{transform:translateX(-50%) scale(.98) rotate(-7deg)}to{transform:translateX(-50%) scale(1.06) rotate(7deg)}}
+@keyframes bath-pet-happy{0%,100%{transform:translateX(-50%) rotate(-7deg)}50%{transform:translateX(-50%) translateY(-15px) rotate(7deg)}}
+@keyframes bath-bubble-float{0%,100%{transform:translateY(5px) scale(.9)}50%{transform:translateY(-18px) scale(1.1)}}
+@media(prefers-reduced-motion:reduce){.bath-character,.bath-droplets i{animation:none}}
+
+/* Illustrated miniature pets in My Pets list */
+.panel .pet-choice[data-pet]{display:flex;align-items:center;justify-content:flex-start;gap:7px;text-align:left;min-height:52px;padding:5px 7px}
+.pet-choice-art{width:46px;height:46px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 2px 2px #73507933)}
+.pet-choice-name{flex:1;min-width:0;overflow-wrap:anywhere}
+.pet-choice-status{flex-shrink:0}
+@media(max-width:650px){.panel .pet-choice[data-pet]{gap:3px;min-height:37px;padding:3px}.pet-choice-art{width:30px;height:30px}}
+/* Mystery shop */
+.shop-page{max-width:950px;margin:0 auto;padding:18px;text-align:center}.shop-page h1{margin:0 0 8px}.shop-shelf{background:#fff8e9;border:3px solid #b77c4d;border-radius:20px;padding:15px;margin:14px 0;box-shadow:0 8px 0 #a16c45}.shop-shelf h2{margin:0 0 12px}.shop-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.shop-item{border:2px solid #dcb98c;border-radius:16px;background:#fff;padding:12px 4px;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#4a3329;font:inherit;cursor:pointer}.shop-item:disabled{opacity:.55;cursor:default}.shop-icon{font-size:42px}.shop-item strong{font-size:clamp(12px,2vw,17px)}.shop-item small{font-size:12px}.shop-note{font-size:14px}.shop-message{background:#fff3c7;border-radius:12px;padding:12px;margin:12px 0}.shop-shelf-edge{height:12px;background:#98623c;border-radius:8px;margin:10px -8px -12px}@media(max-width:550px){.shop-item{min-height:105px}.shop-icon{font-size:32px}.shop-page{padding:8px}}
+
+/* S&S Shop: compact, playful three-tier wooden display for iPad landscape. */
+#room:has(.shop-page){overflow:auto;padding:4px 12px 8px;}
+.shop-page{width:min(100%,850px);max-width:none;margin:0 auto;padding:0 4px 6px;text-align:center;display:flex;flex-direction:column;gap:clamp(4px,0.8vh,9px)}
+.shop-page h1{font-size:clamp(21px,3.7vh,34px);line-height:1.05;margin:0;color:#7c3e78;text-shadow:1px 2px #fff9e8}
+.shop-intro{font-size:clamp(11px,1.8vh,15px);margin:0;line-height:1.15}
+.shop-shelf{position:relative;margin:0;padding:5px 12px 10px;border:3px solid #aa6a3c;border-radius:17px 17px 8px 8px;background:linear-gradient(110deg,#ffe8bb,#fff6db 45%,#f8dfb2);box-shadow:inset 0 2px 0 #fff9e5,0 3px 0 #8d532f;min-height:0}
+.shop-shelf h2{font-size:clamp(13px,2.3vh,19px);line-height:1.1;margin:0 0 4px;color:#754321}
+.shop-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,1.5vw,14px)}
+.shop-item{min-height:0;height:clamp(64px,11.2vh,100px);padding:3px 3px 5px;gap:1px;border:2px solid #e2bc83;border-bottom:3px solid #c68e50;border-radius:14px 14px 8px 8px;background:linear-gradient(160deg,#fffdf3,#ffefce);box-shadow:inset 0 2px 0 #fff,0 2px 2px #7e4e3026;transition:transform .15s,filter .15s}
+.shop-item:not(:disabled):active{transform:translateY(2px)}
+.shop-icon{font-size:clamp(23px,4.2vh,38px);line-height:1.05;filter:drop-shadow(0 2px 1px #ab764455)}
+.shop-item strong{font-size:clamp(10px,1.8vh,15px);line-height:1.08}
+.shop-item small{font-size:clamp(9px,1.45vh,12px);line-height:1.1}
+.shop-item:disabled{opacity:.65}
+.shop-shelf-edge{height:9px;margin:5px -15px -12px;border-radius:3px 3px 9px 9px;background:linear-gradient(#d99a57 0%,#ae6738 45%,#7b452d 100%);border:1px solid #8c502c;box-shadow:0 3px 0 #74412655}
+.shop-message{font-size:clamp(11px,1.7vh,14px);line-height:1.15;margin:2px 0 0;padding:5px 9px;border:2px solid #efcf85;border-radius:10px;background:#fff4c7}
+.shop-note{font-size:clamp(10px,1.55vh,13px);line-height:1.1;margin:0}
+@media(max-height:650px) and (orientation:landscape){.shop-page{gap:3px}.shop-shelf{padding-top:3px;padding-bottom:7px}.shop-shelf h2{margin-bottom:2px}.shop-item{height:clamp(55px,10.5vh,74px)}.shop-icon{font-size:clamp(20px,4vh,28px)}.shop-shelf-edge{height:7px;margin-top:3px;margin-bottom:-9px}.shop-message{padding:3px 7px}}
+@media(max-width:550px){.shop-page{padding:0 2px 6px}.shop-shelf{padding-left:6px;padding-right:6px}.shop-items{gap:4px}.shop-item{padding:2px}.shop-shelf-edge{margin-left:-9px;margin-right:-9px}}
+
+/* Illustrated S&S Shop scenery: keeps the original functional shop controls on top. */
+#room:has(.shop-page){position:relative;isolation:isolate;background:linear-gradient(#b9eaff88,#ffe4f1aa),url('../assets/images/shop-background.png') center center/cover no-repeat;border-radius:20px;}
+#room:has(.shop-page)::before{content:'';position:absolute;inset:0;background:rgba(255,249,230,.60);z-index:-1;pointer-events:none;border-radius:inherit;}
+.shop-page{position:relative;z-index:1;max-width:790px;}
+.shop-page h1{color:#9135b6;text-shadow:2px 2px 0 #fff, -2px -2px 0 #fff,0 3px 0 #ffe95c;}
+.shop-shelf{background:linear-gradient(110deg,rgba(255,235,184,.95),rgba(255,249,218,.95) 48%,rgba(255,225,166,.95));box-shadow:inset 0 2px 0 #fff9e5,0 4px 0 #8d532f,0 5px 12px #653c5b50;}
+.shop-item{background:linear-gradient(160deg,#fffef6,#fff0d8);}
+
+/* Shop artwork is the actual shelving, not a backdrop for another set of shelves. */
+#room:has(.shop-art-layout){padding:0!important;overflow:hidden!important;position:relative;background:url('../assets/images/shop-background.png') center center/100% 100% no-repeat!important;border-radius:20px;}
+#room:has(.shop-art-layout)::before{display:none!important;}
+.shop-art-layout{position:absolute!important;inset:0;width:100%!important;max-width:none!important;height:100%;padding:0!important;margin:0!important;display:block!important;z-index:1;}
+.shop-art-items{position:absolute;inset:0;}
+.shop-hotspot{position:absolute;left:0;top:0;width:15.5%;height:20%;padding:0;border:0;border-radius:14px;background:transparent;color:#46245f;font:700 clamp(9px,1.45vw,15px)/1.1 system-ui,sans-serif;cursor:pointer;transform:translate(-50%,-50%);display:flex;align-items:flex-end;justify-content:center;}
+.shop-hotspot:disabled{cursor:default;opacity:1;}
+.shop-hotspot:not(:disabled):hover,.shop-hotspot:not(:disabled):focus-visible{outline:3px solid #ffe36b;outline-offset:-3px;background:#ffffff19;}
+.shop-hotspot-status{background:#fff5d9ed;border:2px solid #c08d52;border-radius:20px;padding:2px 8px;box-shadow:0 2px 2px #58332155;white-space:nowrap;}
+.shop-pet{top:28%;}.shop-seed{top:50%;}.shop-extra{top:72%;}
+.shop-hotspot.slot-0{left:39%;}.shop-hotspot.slot-1{left:55%;}.shop-hotspot.slot-2{left:71%;}
+.shop-art-feedback{position:absolute;left:22%;right:22%;bottom:7.7%;padding:4px 9px;background:#fff8e8f2;border:2px solid #ad75c1;border-radius:30px;text-align:center;font-weight:700;color:#592477;font-size:clamp(10px,1.4vw,15px);}
+.shop-art-inventory{position:absolute;bottom:1.5%;left:20%;right:20%;text-align:center;background:#fff8e8e8;border-radius:16px;color:#592477;font-size:clamp(9px,1.1vw,13px);padding:3px;}
+@media(max-height:620px) and (orientation:landscape){.shop-hotspot-status{padding:1px 5px;font-size:10px}.shop-art-feedback{bottom:7%;padding:2px}.shop-art-inventory{bottom:0;padding:1px}}
+
+/* Full-screen illustrated shop: no world sky, duplicate navigation or grass. */
+.scene.shop-fullscreen{background:#b46bc6!important;}
+.scene.shop-fullscreen::after{display:none!important;}
+.scene.shop-fullscreen>.sun,.scene.shop-fullscreen>.cloud,.scene.shop-fullscreen>header,.scene.shop-fullscreen>nav{display:none!important;}
+.scene.shop-fullscreen>#room{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;margin:0!important;padding:0!important;border-radius:0!important;overflow:hidden!important;background:url('../assets/images/shop-background.png') center center/100% 100% no-repeat!important;}
+.scene.shop-fullscreen .shop-art-layout{inset:0!important;}
+.shop-art-home{position:absolute;left:.7%;top:1%;width:8%;height:12%;border:0;background:transparent;border-radius:50%;cursor:pointer;z-index:3;}
+.shop-art-home:focus-visible{outline:4px solid #fff27b;outline-offset:-4px;}
+
+.adventure-room{margin:1.2% auto;padding:clamp(12px,2vw,25px);max-width:900px;max-height:75vh;overflow:auto;border-radius:22px;background:rgba(255,251,239,.93);color:#52365b;text-align:center;box-shadow:0 10px 35px #3e35533b}
+.adventure-room h1{font-size:clamp(23px,3vw,38px);margin:0 0 8px}.adventure-room h2{font-size:clamp(16px,2vw,24px)}
+.adventure-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.adventure-item{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:110px;min-height:85px;border:2px solid #d9b4d8;border-radius:14px;background:#fff4e8;color:#51395b;padding:8px}
+.adventure-item b{font-size:34px}.adventure-item span{font-size:13px}
+.castle-columns{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}.castle-columns select{max-width:250px;padding:12px;border-radius:12px;font-size:17px}
+.magic-box{font-size:95px;animation:magic-wobble 2.2s ease-in-out infinite;position:relative}.magic-box span{position:absolute;top:0;left:25%;font-size:28px;color:#d7a7ef;animation:magic-glow 1.8s infinite alternate}
+.magic-reveal{height:180px;display:flex;justify-content:center;align-items:center}.magic-pet{max-width:190px;max-height:175px;object-fit:contain}
+.float-wiggle{animation:float-wiggle 3s ease-in-out infinite}.float-spin{animation:float-spin 3.5s ease-in-out infinite}
+@keyframes magic-wobble{0%,100%{transform:rotate(-4deg) scale(.96)}50%{transform:rotate(4deg) scale(1.06)}}
+@keyframes magic-glow{to{opacity:.4;transform:translateY(-12px)}}
+@keyframes float-wiggle{0%,100%{transform:translateY(9px) rotate(-5deg)}50%{transform:translateY(-13px) rotate(5deg)}}
+@keyframes float-spin{0%,100%{transform:translateY(8px) rotate(-9deg)}50%{transform:translateY(-12px) rotate(9deg)}}
+.shop-garden-link{position:absolute;bottom:3%;right:3%;z-index:10;background:#fff1ce;color:#51365e;border:2px solid #a47fba;border-radius:15px;padding:7px 13px;font-weight:bold;cursor:pointer}
+
+/* Illustrated, full-bleed playroom. Keep interactive pet, bath and room navigation. */
+.scene.playroom-illustrated{
+ background: url('../assets/images/playroom-background.png') center center / cover no-repeat !important;
+}
+.scene.playroom-illustrated::after,
+.scene.playroom-illustrated>.sun,
+.scene.playroom-illustrated>.cloud{display:none!important}
+.scene.playroom-illustrated>header{
+ padding:clamp(5px,1vh,12px) 2vw;
+ background:linear-gradient(#fff7e9cc,#fff7e900);
+}
+.scene.playroom-illustrated>nav{
+ width:max-content;
+ max-width:96%;
+ margin:0 auto;
+ padding:4px 9px;
+ border-radius:30px;
+ background:#fff9e6c9;
+ backdrop-filter:blur(7px);
+}
+.scene.playroom-illustrated nav button{
+ font-size:clamp(10px,1.25vw,17px);
+ padding:.3em .65em;
+ box-shadow:0 3px 0 #aa6ab6;
+}
+.scene.playroom-illustrated #room{
+ height:calc(100% - 108px);
+ overflow:auto;
+ padding:1vh 2vw 2vh;
+}
+.scene.playroom-illustrated .play-layout{
+ grid-template-columns:minmax(145px,22%) 1fr minmax(145px,22%);
+ gap:1.5vw;
+}
+.scene.playroom-illustrated .panel{
+ background:#fff8edf0;
+ border:3px solid #fff7f8;
+ box-shadow:0 6px 18px #40235d6e;
+ backdrop-filter:blur(5px);
+}
+.scene.playroom-illustrated .center-stage{
+ justify-content:flex-end;
+ padding-bottom:1vh;
+}
+.scene.playroom-illustrated .speech{
+ background:#fff9eff0;
+ box-shadow:0 4px 15px #482d5677;
+}
+.scene.playroom-illustrated .pet-display{
+ filter:drop-shadow(0 8px 8px #4b2a6380);
+}
+.scene.playroom-illustrated .pet-display img{
+ max-height:min(30vh,230px);
+ width:auto;
+ max-width:100%;
+ object-fit:contain;
+}
+@media(max-height:650px) and (orientation:landscape){
+ .scene.playroom-illustrated>header{padding:2px 2vw}
+ .scene.playroom-illustrated>nav{padding:2px 7px}
+ .scene.playroom-illustrated #room{height:calc(100% - 80px);padding:0 2vw 1vh}
+ .scene.playroom-illustrated .pet-display img{max-height:25vh}
+ .scene.playroom-illustrated .panel{padding:5px}
+ .scene.playroom-illustrated .center-stage{height:100%}
+ .scene.playroom-illustrated .action{margin:3px}
+}
